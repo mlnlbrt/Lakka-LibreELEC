@@ -168,10 +168,18 @@
   if [ "$TARGET_ARCH" = "i386" ]; then
     # TODO: create Legacy build with OpenELEC-4.2
     # install legacy drivers to i386 ARCH
-    GRAPHIC_DRIVERS="r200 r300 r600 i915 i965 nouveau"
+    GRAPHIC_DRIVERS="r200 r300 r600 i915 i965"
   elif [ "$TARGET_ARCH" = "x86_64" ]; then
-    GRAPHIC_DRIVERS="r300 r600 radeonsi i915 i965 nouveau"
+    GRAPHIC_DRIVERS="r300 r600 radeonsi i915 i965"
   fi
+
+# Add nvidia binary drivers when using X11, otherwise add nouveau
+  if [ "$PROJECT" == "Generic-X11" ]; then
+    GRAPHIC_DRIVERS="$GRAPHIC_DRIVERS nvidia nvidia-legacy"
+  else
+    GRAPHIC_DRIVERS="$GRAPHIC_DRIVERS nouveau"
+  fi
+
 
 # build and install remote support (yes / no)
   REMOTE_SUPPORT="no"
