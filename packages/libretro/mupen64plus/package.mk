@@ -62,6 +62,9 @@ make_target() {
     Generic)
       make
       ;;
+    Generic-X11)
+      make
+      ;;
     OdroidC1)
       make platform=odroid BOARD=ODROID-C1
       ;;

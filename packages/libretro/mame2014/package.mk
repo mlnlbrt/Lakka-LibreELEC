@@ -61,6 +61,9 @@ make_target() {
     Generic)
       make
       ;;
+    Generic-X11)
+      make
+      ;;
     *)
       make platform=armv
       ;;
