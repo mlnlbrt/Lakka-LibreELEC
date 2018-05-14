@@ -91,6 +91,11 @@ case "$LINUX" in
     PKG_VERSION="4.14.5"
     PKG_URL="http://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
     ;;
+  default-x11)
+    PKG_VERSION="4.11.12"
+    PKG_URL="http://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
+    PKG_PATCH_DIRS="default-x11"
+    ;;
   *)
     PKG_VERSION="4.11.12"
     PKG_URL="http://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
