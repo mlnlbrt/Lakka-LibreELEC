@@ -51,7 +51,7 @@ logger -t Xorg "### setup xorg.conf paths ###"
 
 logger -t Xorg "### creating start options ###"
 
-  XORG_ARGS="-s 0 -noreset -allowMouseOpenFail"
+  XORG_ARGS="-s 0 -noreset -allowMouseOpenFail -nocursor"
 
   # load user defined xorg.conf, if exist
   if [ -f "$XORG_CONF_USER" ]; then
