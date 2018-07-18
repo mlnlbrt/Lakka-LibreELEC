@@ -191,6 +191,9 @@ $SCRIPTS/install network
 # Installer support
 [ "$INSTALLER_SUPPORT" = "yes" ] && $SCRIPTS/install installer
 
+# Cryptsetup support
+[ "$CRYPTSETUP_SUPPORT" = "yes" ] && $SCRIPTS/install cryptsetup
+
 # Devtools... (not for Release)
 [ "$TESTING" = "yes" ] && $SCRIPTS/install testing
 
