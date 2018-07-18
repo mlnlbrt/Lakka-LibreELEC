@@ -1,0 +1,24 @@
+diff -Naur LVM2-2.02.168.orig/configure.in LVM2-2.02.168/configure.in
+--- LVM2-2.02.168.orig/configure.in	2017-04-15 20:23:14.065917963 +0200
++++ LVM2-2.02.168/configure.in	2017-04-15 20:23:50.858488305 +0200
+@@ -138,7 +138,7 @@
+ ################################################################################
+ dnl -- Check for functions
+ AC_CHECK_FUNCS([ftruncate gethostname getpagesize gettimeofday localtime_r \
+-  memchr memset mkdir mkfifo munmap nl_langinfo realpath rmdir setenv \
++  memchr memset mkdir malloc realloc mkfifo munmap nl_langinfo realpath rmdir setenv \
+   setlocale strcasecmp strchr strcspn strdup strerror strncasecmp strndup \
+   strrchr strspn strstr strtol strtoul uname], , [AC_MSG_ERROR(bailing out)])
+ AC_FUNC_ALLOCA
+@@ -146,11 +146,9 @@
+ AC_FUNC_CHOWN
+ AC_FUNC_FORK
+ AC_FUNC_LSTAT
+-AC_FUNC_MALLOC
+ AC_FUNC_MEMCMP
+ AC_FUNC_MKTIME
+ AC_FUNC_MMAP
+-AC_FUNC_REALLOC
+ AC_FUNC_STAT
+ AC_FUNC_STRTOD
+ AC_FUNC_VPRINTF
