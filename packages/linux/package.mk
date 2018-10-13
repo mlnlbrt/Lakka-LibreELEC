@@ -29,8 +29,8 @@ PKG_SHORTDESC="linux26: The Linux kernel 2.6 precompiled kernel binary image and
 PKG_LONGDESC="This package contains a precompiled kernel image and the modules."
 case "$LINUX" in
   linux-odroidxu3)
-    PKG_VERSION="35dfbab"
-    PKG_URL="$LAKKA_MIRROR/$PKG_NAME-$PKG_VERSION.tar.xz"
+    PKG_VERSION="08a0e22"
+    PKG_URL="https://github.com/hardkernel/linux/archive/$PKG_VERSION.tar.gz"
     ;;
   linux-odroidc-3.10.y)
     PKG_VERSION="6ac660c"
@@ -77,18 +77,18 @@ case "$LINUX" in
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET imx6-status-led imx6-soc-fan irqbalanced"
     ;;
   default-rpi)
-    PKG_VERSION="4.9.59"
-    PKG_URL="http://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
+    PKG_VERSION="ffd7bf4085b09447e5db96edd74e524f118ca3fe" #4.9.80
+    PKG_URL="https://github.com/raspberrypi/linux/archive/$PKG_VERSION.tar.gz"
     PKG_PATCH_DIRS="default-rpi"
     ;;
   rockchip-4.4)
-    PKG_VERSION="ea43504"
+    PKG_VERSION="eae92ae2"
     PKG_URL="https://github.com/rockchip-linux/kernel/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_DIR="kernel-$PKG_VERSION*"
     PKG_PATCH_DIRS="rockchip-4.4"
     ;;
   allwinner)
-    PKG_VERSION="4.14.5"
+    PKG_VERSION="4.14.18"
     PKG_URL="http://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
     ;;
   default-x11)
