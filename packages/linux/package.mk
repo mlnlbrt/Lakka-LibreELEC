@@ -179,6 +179,13 @@ post_patch() {
     sed -i -e "s|^CONFIG_ISCSI_IBFT=.*$|# CONFIG_ISCSI_IBFT is not set|" $PKG_BUILD/.config
   fi
 
+  # enable dm-crypt support if needed
+  if [ "$CRYPTSETUP_SUPPORT" = yes ]; then
+    DM_CONFIG_ENTRIES="CONFIG_MD=y\nCONFIG_BLK_DEV_DM_BUILTIN=y\nCONFIG_BLK_DEV_DM=m\nCONFIG_DM_CRYPT=m"
+    sed -i -e "s|# CONFIG_MD is not set|$DM_CONFIG_ENTRIES|" $PKG_BUILD/.config
+    sed -i -e "s|# CONFIG_CRYPTO_XTS is not set|CONFIG_CRYPTO_XTS=m|" $PKG_BUILD/.config
+  fi
+
   # install extra dts files
   for f in $PROJECT_DIR/$PROJECT/config/*-overlay.dts; do
     [ -f "$f" ] && cp -v $f $PKG_BUILD/arch/$TARGET_KERNEL_ARCH/boot/dts/overlays || true
