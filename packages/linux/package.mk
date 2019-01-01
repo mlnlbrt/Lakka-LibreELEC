@@ -181,7 +181,29 @@ post_patch() {
 
   # enable dm-crypt support if needed
   if [ "$CRYPTSETUP_SUPPORT" = yes ]; then
-    DM_CONFIG_ENTRIES="CONFIG_MD=y\nCONFIG_BLK_DEV_DM_BUILTIN=y\nCONFIG_BLK_DEV_DM=m\nCONFIG_DM_CRYPT=m"
+    DM_CONFIG_ENTRIES="\
+CONFIG_MD=y\n\
+# CONFIG_BLK_DEV_MD is not set\n\
+# CONFIG_BCACHE is not set\n\
+CONFIG_BLK_DEV_DM_BUILTIN=y\n\
+CONFIG_BLK_DEV_DM=m\n\
+# CONFIG_DM_MQ_DEFAULT is not set\n\
+# CONFIG_DM_DEBUG is not set\n\
+CONFIG_DM_CRYPT=m\n\
+# CONFIG_DM_SNAPSHOT is not set\n\
+# CONFIG_DM_THIN_PROVISIONING is not set\n\
+# CONFIG_DM_CACHE is not set\n\
+# CONFIG_DM_ERA is not set\n\
+# CONFIG_DM_MIRROR is not set\n\
+# CONFIG_DM_RAID is not set\n\
+# CONFIG_DM_ZERO is not set\n\
+# CONFIG_DM_MULTIPATH is not set\n\
+# CONFIG_DM_DELAY is not set\n\
+# CONFIG_DM_UEVENT is not set\n\
+# CONFIG_DM_FLAKEY is not set\n\
+# CONFIG_DM_VERITY is not set\n\
+# CONFIG_DM_SWITCH is not set\n\
+# CONFIG_DM_LOG_WRITES is not set"
     sed -i -e "s|# CONFIG_MD is not set|$DM_CONFIG_ENTRIES|" $PKG_BUILD/.config
     sed -i -e "s|# CONFIG_CRYPTO_XTS is not set|CONFIG_CRYPTO_XTS=m|" $PKG_BUILD/.config
   fi
