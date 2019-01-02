@@ -58,6 +58,8 @@ fi
 
 if [ "$VULKAN" == "nvidia-driver" ]; then
   RETROARCH_GL="--enable-vulkan --disable-x11 --disable-kms --disable-egl"
+elif [ "$DISPLAYSERVER" == "x11" ]; then
+  RETROARCH_GL="--enable-x11 --disable-kms"
 elif [ "$OPENGLES" == "no" ]; then
   RETROARCH_GL="--enable-kms"
 elif [ "$OPENGLES" == "bcm2835-driver" ]; then
