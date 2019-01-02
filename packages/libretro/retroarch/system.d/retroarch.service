@@ -5,6 +5,7 @@ ConditionKernelCommandLine=!retroarch=0
 Requires=graphical.target
 
 [Service]
+Environment=DISPLAY=:0.0
 Environment=HOME=/storage
 EnvironmentFile=-/run/libreelec/retroarch.conf
 ExecStartPre=-/usr/lib/retroarch/retroarch-config
