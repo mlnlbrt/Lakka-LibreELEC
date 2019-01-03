@@ -59,7 +59,7 @@
     ALSA_SUPPORT="yes"
 
   # OpenGL(X) implementation to use (no / mesa)
-    OPENGL="no"
+    OPENGL="mesa" # just to satisfy build-time requirements of some GL cores
 
   # OpenGL-ES implementation to use (no / bcm2835-driver / gpu-viv-bin-mx6q)
     OPENGLES="no"
