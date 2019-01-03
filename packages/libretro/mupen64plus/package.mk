@@ -55,7 +55,7 @@ make_target() {
       CPPFLAGS="$CPPFLAGS -DLINUX -DEGL_API_FB"
       make platform=unix GLES=1 FORCE_GLES=1 HAVE_NEON=1 WITH_DYNAREC=arm
       ;;
-    Generic)
+    Generic|Generic_X11_nvidia)
       make
       ;;
     OdroidC1)
