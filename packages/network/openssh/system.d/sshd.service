@@ -1,5 +1,6 @@
 [Unit]
 Description=OpenSSH server daemon
+ConditionKernelCommandLine=!fastboot=1
 ConditionKernelCommandLine=|ssh
 ConditionPathExists=|/storage/.cache/services/sshd.conf
 

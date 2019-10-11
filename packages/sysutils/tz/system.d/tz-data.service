@@ -1,5 +1,6 @@
 [Unit]
 Description=Setup Timezone data
+ConditionKernelCommandLine=!fastboot=1
 DefaultDependencies=no
 Before=systemd-udevd.service
 After=var.mount systemd-tmpfiles-setup.service

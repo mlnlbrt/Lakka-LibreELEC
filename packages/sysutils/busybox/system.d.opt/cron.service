@@ -1,5 +1,6 @@
 [Unit]
 Description=Cron daemon
+ConditionKernelCommandLine=!fastboot=1
 After=cron-defaults.service
 Requires=cron-defaults.service
 

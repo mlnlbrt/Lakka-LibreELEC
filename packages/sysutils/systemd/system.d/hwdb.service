@@ -1,5 +1,6 @@
 [Unit]
 Description=Update hwdb.bin
+ConditionKernelCommandLine=!fastboot=1
 DefaultDependencies=no
 After=systemd-tmpfiles-setup.service
 Before=systemd-udevd.service

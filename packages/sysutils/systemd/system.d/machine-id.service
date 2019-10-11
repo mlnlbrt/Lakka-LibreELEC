@@ -1,5 +1,6 @@
 [Unit]
 Description=Setup machine-id
+ConditionKernelCommandLine=!fastboot=1
 DefaultDependencies=no
 Before=systemd-journald.service systemd-tmpfiles-setup-dev.service
 

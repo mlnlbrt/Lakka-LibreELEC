@@ -1,5 +1,6 @@
 [Unit]
 Description=Udevil mount service
+ConditionKernelCommandLine=!fastboot=1
 
 [Service]
 Type=oneshot

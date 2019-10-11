@@ -1,5 +1,6 @@
 [Unit]
 Description=Connection service
+ConditionKernelCommandLine=!fastboot=1
 DefaultDependencies=false
 Conflicts=shutdown.target
 Before=network.target multi-user.target shutdown.target

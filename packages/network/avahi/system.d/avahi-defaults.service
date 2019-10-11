@@ -1,5 +1,6 @@
 [Unit]
 Description=Avahi defaults
+ConditionKernelCommandLine=!fastboot=1
 After=local-fs.target
 
 ConditionPathExists=!/storage/.cache/services/avahi.conf
