@@ -35,7 +35,7 @@ PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 if [ "$PROJECT" == "RPi" ] && [ "$BOARD" == "GPICase" ]; then
-  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET gpicase-safeshutdown"
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET gpicase-safeshutdown rng-tools"
 fi
 
 post_install() {
