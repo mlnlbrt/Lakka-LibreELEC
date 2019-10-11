@@ -185,6 +185,7 @@ post_makeinstall_target() {
   rm -rf $INSTALL/usr/lib/systemd/network
 
   # tune journald.conf
+  sed -e "s,^.*Storage=.*$,Storage=none,g" -i $INSTALL/etc/systemd/journald.conf
   sed -e "s,^.*Compress=.*$,Compress=no,g" -i $INSTALL/etc/systemd/journald.conf
   sed -e "s,^.*SplitMode=.*$,SplitMode=none,g" -i $INSTALL/etc/systemd/journald.conf
   sed -e "s,^.*RuntimeMaxUse=.*$,RuntimeMaxUse=2M,g" -i $INSTALL/etc/systemd/journald.conf
