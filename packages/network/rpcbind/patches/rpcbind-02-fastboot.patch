@@ -1,0 +1,9 @@
+--- a/systemd/rpcbind.service.in	2019-10-10 22:12:36.985027907 +0200
++++ b/systemd/rpcbind.service.in	2019-10-10 22:13:18.935024875 +0200
+@@ -1,5 +1,6 @@
+ [Unit]
+ Description=RPC Bind
++ConditionKernelCommandLine=!fastboot=1
+ Documentation=man:rpcbind(8)
+ DefaultDependencies=no
+ 
