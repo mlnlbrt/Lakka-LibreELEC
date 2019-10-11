@@ -12,3 +12,5 @@ UDEVIL="no"
 EXFAT="no"
 NTFS3G="no"
 HFSTOOLS="no"
+
+ISCSI_SUPPORT="no"
