@@ -1,0 +1,13 @@
+--- a/src/core/main.c	2019-10-11 18:22:01.536427381 +0200
++++ b/src/core/main.c	2019-10-11 18:22:13.353093193 +0200
+@@ -1471,10 +1471,6 @@
+                         }
+ 
+                         r = clock_apply_epoch();
+-                        if (r < 0)
+-                                log_error_errno(r, "Current system time is before build time, but cannot correct: %m");
+-                        else if (r > 0)
+-                                log_info("System time before build time, advancing clock.");
+                 }
+ 
+                 /* Set the default for later on, but don't actually
