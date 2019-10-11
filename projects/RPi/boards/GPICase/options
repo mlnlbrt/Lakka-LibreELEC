@@ -13,3 +13,6 @@ NTFS3G="no"
 HFSTOOLS="no"
 
 ISCSI_SUPPORT="no"
+
+ADDITIONAL_DRIVERS="${$ADDITIONAL_DRIVERS// gamecon_gpio_rpi/}"
+ADDITIONAL_DRIVERS="${$ADDITIONAL_DRIVERS// rpi-cirrus-config/}"
