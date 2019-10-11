@@ -1,0 +1,10 @@
+[Unit]
+Description=Hardware RNG Entropy Gatherer Daemon
+DefaultDependencies=no
+Before=sysinit.target shutdown.target
+
+[Service]
+ExecStart=/usr/sbin/rngd -f
+
+[Install]
+WantedBy=sysinit.target
