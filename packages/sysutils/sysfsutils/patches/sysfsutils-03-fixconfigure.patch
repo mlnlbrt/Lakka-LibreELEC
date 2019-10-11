@@ -1,0 +1,24 @@
+--- a/configure.ac	2019-10-11 15:14:17.766744345 +0200
++++ b/configure.ac	2019-10-11 15:14:34.083409829 +0200
+@@ -4,20 +4,7 @@
+ AC_CONFIG_SRCDIR([config.h.in])
+ AC_CONFIG_HEADERS([config.h])
+ 
+-# Checks for KLIBC support (should be before AC_PROG_LIBTOOL and AC_PROG_CC)
+-AC_CHECK_KLIBC
+-
+-if test "X$KLIBC" == Xyes; then
+-	# Should disable/enable building of shared libraries ... I am open to better
+-	# suggestions though (AC_DISABLE_SHARED and co do not do the right thing in
+-	# a situation like this that its runtime dependent) ...
+-	enable_shared="no"
+-	EXTRA_CFLAGS=
+-else
+-	# These ones make KLIBC compiles very loud
+-	EXTRA_CFLAGS="-Wshadow -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs"
+-fi
+-AM_CONDITIONAL([KLIBC],[test "X$KLIBC" == Xyes])
++EXTRA_CFLAGS=
+ AC_SUBST([EXTRA_CFLAGS])
+ 
+ # Checks for LIBTOOL
