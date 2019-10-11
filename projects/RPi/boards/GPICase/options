@@ -8,7 +8,6 @@ KERNEL_MAKE_EXTRACMD="dtbs overlays/dpi24-gpi.dtbo overlays/pwm-audio-pi-zero-gp
 # disable things unuseful for GPICase
 ################################################################################
 
-UDEVIL="no"
 EXFAT="no"
 NTFS3G="no"
 HFSTOOLS="no"
