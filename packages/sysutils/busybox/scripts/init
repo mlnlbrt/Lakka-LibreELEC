@@ -66,6 +66,16 @@
   MACHINE_UID="$(cat /proc/cpuinfo | awk '/^Serial/{s=$3; gsub ("^0*","",s); print s}')"
   [ -z "$MACHINE_UID" ] && MACHINE_UID="$(cat /sys/class/net/eth0/address 2>/dev/null | tr -d :)"
 
+  # hide kernel log messages on console
+  if [ -e /proc/sys/kernel/printk ] ; then
+    echo '1 4 1 7' > /proc/sys/kernel/printk
+  fi
+
+  # set ondemand up_threshold
+  if [ -e /sys/devices/system/cpu/cpufreq/ondemand/up_threshold ] ; then
+    echo 50 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+  fi
+
   # run platform_init script if exists
   if [ -f "./platform_init" ]; then
     ./platform_init
@@ -1007,6 +1017,12 @@
 
     [ -f "/sysroot/usr/lib/systemd/systemd" ] || error "final_check" "Could not find systemd!"
   }
+
+  # If the network is up (due to the use of the "ip" kernel parameter) and a DNS
+  # server is known, allow the libc resolver to use it
+  if [ -e /proc/net/pnp ] ; then
+    grep '^\(nameserver\|domain\) ' /proc/net/pnp | grep -v '^nameserver 0\.0\.0\.0$' > /etc/resolv.conf
+  fi
 
   if [ "${boot%%=*}" = "FILE" ]; then
     error "check arguments" "boot argument can't be FILE type..."
